@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "DIN Pro";
+    src: url('./Fonts/FontsFree-Net-DINPro-1.ttf');
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DIN Pro", sans-serif;
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/img/mainBG.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+  
+.center-button {
+    padding: 5vh 4vw;
+    font-size: 6vh;
+    background-color: #141A1E;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+
+}
