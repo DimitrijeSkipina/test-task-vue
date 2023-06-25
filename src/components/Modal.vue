@@ -92,6 +92,7 @@ const handleClick = (item) => {
   background-image: url('/img/SVG-ART.svg'), url('/img/Intersect.png');
   background-repeat: no-repeat;
   background-position: center center;
+  position: absolute;
 
     .title-box {
         width: 100%;
