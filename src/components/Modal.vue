@@ -6,24 +6,24 @@
                 <div class="title-box__description-text">Управление транспортом</div>
             </div>
             <div class="title-box__exit" @click="$emit('closeModal')">
-                <img class="title-box__exit-svg" src="/img/shape.svg" alt="exit svg" >
+                <img class="title-box__exit--svg" src="/img/shape.svg" alt="exit svg" >
             </div>
         </div>
 
         <div class="content" ref="contentBlock">
             <div v-for="item in dataArray" :key="item.name" class="content__data-block" @click="handleClick(item)">
 
-                <div class="content__data-block-name">{{ item.name }}</div>
+                <div class="content__data-block--name">{{ item.name }}</div>
 
-                <div v-if="item.type === 'buying'" class="content__data-block-price">
+                <div v-if="item.type === 'buying'" class="content__data-block--price">
                     <span class="content__data-block-price--dollar-sign">$</span>{{ item.price }}
                 </div>
 
-                <div v-else-if="item.type === 'sale'" class="content__data-block-price">
+                <div v-else-if="item.type === 'sale'" class="content__data-block--price">
                     <span class="content__data-block-price--dollar-sign-green">+$</span>{{ item.price }}
                 </div>
 
-                <div v-else class="content__data-block-price">
+                <div v-else class="content__data-block--price">
                     <img src="/img/premium.svg" class="content__data-block--premium-img">
                 </div>
 
@@ -80,7 +80,7 @@ onMounted(() => {
 const handleClick = (item) => {
   console.log(item.name);
   const block = event.target.closest('.content__data-block');
-  block.classList.add('content__data-block-dark');
+  block.classList.add('content__data-block--dark');
 };
 </script>
 
@@ -93,60 +93,62 @@ const handleClick = (item) => {
   background-repeat: no-repeat;
   background-position: center center;
 
-  .title-box {
-    width: 100%;
-    height: 20%;
-    max-height: 15%;
-    padding: 4vw 0;
-    padding-left: 9vw;
-    padding-right: 2vw;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    .title-box {
+        width: 100%;
+        height: 20%;
+        max-height: 15%;
+        padding: 4vw 0;
+        padding-left: 9vw;
+        padding-right: 2vw;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
 
-    .title-box__left-box {
-      height: 100%;
-      max-height: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+        &__left-box {
+            height: 100%;
+            max-height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-      .title-box__title-text {
-        font-size: 4vw;
-        font-weight: 500;
-        color: white;
-        text-transform: uppercase;
-      }
+        &__title-text {
+            font-size: 4vw;
+            font-weight: 500;
+            color: white;
+            text-transform: uppercase;
+        }
 
-      .title-box__description-text {
-        font-size: 2.2vw;
-        color: #f1f1f180;
-        padding-left: 3vw;
-      }
+        &__description-text {
+            font-size: 2.2vw;
+            color: #f1f1f180;
+            padding-left: 3vw;
+        }
+
+        &__exit {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 5vw;
+            height: 5vw;
+            border-radius: 50%;
+            cursor: pointer;
+            background-image: linear-gradient(transparent, #f1f1f129); 
+
+            &:hover {
+            background-image: linear-gradient(transparent, #f1f1f144);
+            }
+
+            &--svg {
+                width: 35%;
+                height: 35%;
+            }
+        }
+
+        
     }
-
-    .title-box__exit {
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 5vw;
-      height: 5vw;
-      border-radius: 50%;
-      cursor: pointer;
-      background-image: linear-gradient(transparent, #f1f1f129); 
-
-      &:hover {
-        background-image: linear-gradient(transparent, #f1f1f144);
-      }
-
-      .title-box__exit-svg {
-        width: 35%;
-        height: 35%;
-      }
-    }
-  }
 
   .content {
     width: 100%;
@@ -184,7 +186,7 @@ const handleClick = (item) => {
       justify-content: center;
     }
 
-    .content__data-block {
+    &__data-block {
       min-width: 18vw;
       max-width: 18vw;
       margin: 1vw;
@@ -198,17 +200,17 @@ const handleClick = (item) => {
       cursor: pointer;
       transition: background-color 0.2s ease;
 
-      &.content__data-block-dark {
+      &--dark {
         background-color: rgba(20, 26, 30, 0.8);
       }
 
-      .content__data-block-name {
+      &--name {
         font-size: 1.7vw;
         color: white;
         font-weight: 500;
       }
 
-      .content__data-block-price {
+      &--price {
         color: white;
         font-size: 2vw;
         display: flex;
@@ -227,7 +229,7 @@ const handleClick = (item) => {
         }
       }
 
-      .content__data-block--premium-img {
+      &--premium-img {
         width: 2.5vw;
         object-fit: contain;
         opacity: 0.4;
